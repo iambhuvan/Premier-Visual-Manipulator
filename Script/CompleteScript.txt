@@ -1,0 +1,202 @@
+# Combined Image Processing Script
+
+# Load Operations
+# Loads the primary image for processing
+load TestImages/TestImage1JPG.jpg TestImage1
+# Loads the mask image for partial operations
+load TestImages/TestImage1-mask.jpg TestImage1-mask
+
+# Basic Component Operations
+# Extracts the red channel from the image
+red-component TestImage1 TestImage1-red
+save ResultImages/TestImage1-red.jpg TestImage1-red
+
+# Extracts the green channel from the image
+green-component TestImage1 TestImage1-green
+save ResultImages/TestImage1-green.jpg TestImage1-green
+
+# Extracts the blue channel from the image
+blue-component TestImage1 TestImage1-blue
+save ResultImages/TestImage1-blue.jpg TestImage1-blue
+
+# Extracts maximum RGB value for each pixel
+value-component TestImage1 TestImage1-value
+save ResultImages/TestImage1-value.jpg TestImage1-value
+
+# Calculates average of RGB channels
+intensity-component TestImage1 TestImage1-intensity
+save ResultImages/TestImage1-intensity.jpg TestImage1-intensity
+
+# Applies weighted sum of RGB channels for perceived brightness
+luma-component TestImage1 TestImage1-luma
+save ResultImages/TestImage1-luma.jpg TestImage1-luma
+
+# Image Transformations
+# Mirrors the image horizontally
+horizontal-flip TestImage1 TestImage1-horizontal
+save ResultImages/TestImage1-horizontal.jpg TestImage1-horizontal
+
+# Mirrors the image vertically
+vertical-flip TestImage1 TestImage1-vertical
+save ResultImages/TestImage1-vertical.jpg TestImage1-vertical
+
+# Brightness Adjustments
+# Increases brightness by 20 units
+brighten 20 TestImage1 TestImage1-bright
+save ResultImages/TestImage1-bright.jpg TestImage1-bright
+
+# Decreases brightness by 20 units
+brighten -20 TestImage1 TestImage1-dark
+save ResultImages/TestImage1-dark.jpg TestImage1-dark
+
+# RGB Operations
+# Separates image into individual RGB channels
+rgb-split TestImage1 TestImage1-split-red TestImage1-split-green TestImage1-split-blue
+save ResultImages/TestImage1-split-red.jpg TestImage1-split-red
+save ResultImages/TestImage1-split-green.jpg TestImage1-split-green
+save ResultImages/TestImage1-split-blue.jpg TestImage1-split-blue
+
+# Combines separate RGB channels into one image
+rgb-combine CombinedImage TestImage1-split-red TestImage1-split-green TestImage1-split-blue
+save ResultImages/CombinedImage.jpg CombinedImage
+
+# Filter Effects
+# Applies Gaussian blur for image softening
+blur TestImage1 TestImage1-blurred
+save ResultImages/TestImage1-blurred.jpg TestImage1-blurred
+
+# Enhances edge details and sharpness
+sharpen TestImage1 TestImage1-sharpened
+save ResultImages/TestImage1-sharpened.jpg TestImage1-sharpened
+
+# Color Transformations
+# Applies sepia tone effect for vintage appearance
+sepia TestImage1 TestImage1-sepia
+save ResultImages/TestImage1-sepia.jpg TestImage1-sepia
+
+# Converts image to greyscale using luma values
+greyscale TestImage1 TestImage1-greyscale
+save ResultImages/TestImage1-greyscale.jpg TestImage1-greyscale
+
+# Compression and Histogram Operations
+# Compresses image to 20% of original quality
+compress 20 TestImage1 TestImage1-compressed20
+save ResultImages/TestImage1-compressed20.jpg TestImage1-compressed20
+# Creates histogram for 20% compressed image
+histogram TestImage1-compressed20 TestImage1-compressed20-histogram
+save ResultImages/20-histogram.jpg TestImage1-compressed20-histogram
+
+# Compresses image to 50% of original quality
+compress 50 TestImage1 TestImage1-compressed50
+save ResultImages/TestImage1-compressed50.jpg TestImage1-compressed50
+# Creates histogram for 50% compressed image
+histogram TestImage1-compressed50 TestImage1-compressed50-histogram
+save ResultImages/50-histogram.jpg TestImage1-compressed50-histogram
+
+# Compresses image to 90% of original quality
+compress 90 TestImage1 TestImage1-compressed90
+save ResultImages/TestImage1-compressed90.jpg TestImage1-compressed90
+# Creates histogram for 90% compressed image
+histogram TestImage1-compressed90 TestImage1-compressed90-histogram
+save ResultImages/90-histogram.jpg TestImage1-compressed90-histogram
+
+# Original Image Histogram
+# Generates histogram of the original unmodified image
+histogram TestImage1 TestImage1-histogram
+save ResultImages/TestImage1-histogram.jpg TestImage1-histogram
+
+# Color Correction and Levels
+# Automatically adjusts color balance
+color-correct TestImage1 TestImage1-color-corrected
+save ResultImages/TestImage1-color-corrected.jpg TestImage1-color-corrected
+# Creates histogram for color-corrected image
+histogram TestImage1-color-corrected TestImage1-color-corrected-histogram
+save ResultImages/color-corrected-histogram.jpg TestImage1-color-corrected-histogram
+
+# Adjusts levels with black point 20, mid point 100, white point 255
+levels-adjust 20 100 255 TestImage1 TestImage1-levels-adjusted
+save ResultImages/TestImage1-levels-adjusted.jpg TestImage1-levels-adjusted
+# Creates histogram for levels-adjusted image
+histogram TestImage1-levels-adjusted TestImage1-levels-adjusted-histogram
+save ResultImages/levels-adjusted-histogram.jpg TestImage1-levels-adjusted-histogram
+
+# Adjusts levels with different parameters
+levels-adjust 50 150 240 TestImage1 TestImage2-levels-adjusted
+save ResultImages/TestImage2-levels-adjusted.jpg TestImage2-levels-adjusted
+# Creates histogram for second levels adjustment
+histogram TestImage2-levels-adjusted TestImage2-levels-adjusted-histogram
+save ResultImages/level2-histogram.jpg TestImage2-levels-adjusted-histogram
+
+# Split View Operations
+# Shows blur effect with 30% split view
+blur TestImage1 TestImage1-blur-split split 30
+save ResultImages/TestImage1-blur-split.jpg TestImage1-blur-split
+# Creates histogram for split view blur
+histogram TestImage1-blur-split TestImage1-blur-split-histogram
+save ResultImages/TestImage1-blur-split-histogram.jpg TestImage1-blur-split-histogram
+
+# Shows sharpen effect with 70% split view
+sharpen TestImage1 TestImage1-sharpen-split split 70
+save ResultImages/TestImage1-sharpen-split.jpg TestImage1-sharpen-split
+# Creates histogram for split view sharpen
+histogram TestImage1-sharpen-split TestImage1-sharpen-split-histogram
+save ResultImages/TestImage1-sharpen-split-histogram.jpg TestImage1-sharpen-split-histogram
+
+# Shows sepia effect with 30% split view
+sepia TestImage1 TestImage1-sepia-split split 30
+save ResultImages/TestImage1-sepia-split.jpg TestImage1-sepia-split
+# Creates histogram for split view sepia
+histogram TestImage1-sepia-split TestImage1-sepia-split-histogram
+save ResultImages/TestImage1-sepia-split-histogram.jpg TestImage1-sepia-split-histogram
+
+# Shows greyscale effect with 70% split view
+greyscale TestImage1 TestImage1-greyscale-split split 70
+save ResultImages/TestImage1-greyscale-split.jpg TestImage1-greyscale-split
+# Creates histogram for split view greyscale
+histogram TestImage1-greyscale-split TestImage1-greyscale-split-histogram
+save ResultImages/TestImage1-greyscale-split-histogram.jpg TestImage1-greyscale-split-histogram
+
+# Downscale Operations
+# Reduces image size to 300x200 pixels
+downscale 300 200 TestImage1 TestImage1-downscale
+save ResultImages/TestImage1-downscale.jpg TestImage1-downscale
+
+# Reduces image size to 150x100 pixels
+downscale 150 100 TestImage1 TestImage1-downscale-small
+save ResultImages/TestImage1-downscale-small.jpg TestImage1-downscale-small
+
+# Partial Mask Operations
+# Applies blur effect only to masked regions
+partial blur TestImage1 TestImage1-mask TestImage1-partial-blur
+save ResultImages/TestImage1-partial-blur.jpg TestImage1-partial-blur
+
+# Applies sharpen effect only to masked regions
+partial sharpen TestImage1 TestImage1-mask TestImage1-partial-sharpen
+save ResultImages/TestImage1-partial-sharpen.jpg TestImage1-partial-sharpen
+
+# Applies sepia effect only to masked regions
+partial sepia TestImage1 TestImage1-mask TestImage1-partial-sepia
+save ResultImages/TestImage1-partial-sepia.jpg TestImage1-partial-sepia
+
+# Applies greyscale effect only to masked regions
+partial greyscale TestImage1 TestImage1-mask TestImage1-partial-greyscale
+save ResultImages/TestImage1-partial-greyscale.jpg TestImage1-partial-greyscale
+
+# Applies color component operations only to masked regions
+partial red-component TestImage1 TestImage1-mask TestImage1-partial-red
+save ResultImages/TestImage1-partial-red.jpg TestImage1-partial-red
+
+partial green-component TestImage1 TestImage1-mask TestImage1-partial-green
+save ResultImages/TestImage1-partial-green.jpg TestImage1-partial-green
+
+partial blue-component TestImage1 TestImage1-mask TestImage1-partial-blue
+save ResultImages/TestImage1-partial-blue.jpg TestImage1-partial-blue
+
+partial value-component TestImage1 TestImage1-mask TestImage1-partial-value
+save ResultImages/TestImage1-partial-value.jpg TestImage1-partial-value
+
+partial intensity-component TestImage1 TestImage1-mask TestImage1-partial-intensity
+save ResultImages/TestImage1-partial-intensity.jpg TestImage1-partial-intensity
+
+partial luma-component TestImage1 TestImage1-mask TestImage1-partial-luma
+save ResultImages/TestImage1-partial-luma.jpg TestImage1-partial-luma

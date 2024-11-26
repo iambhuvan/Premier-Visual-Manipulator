@@ -1,0 +1,44 @@
+# Load the main image
+load TestImages/TestImage1JPG.jpg TestImage1
+
+# Load the mask image
+load TestImages/TestImage1-mask.jpg TestImage1-mask
+
+# Downscale the source image to smaller dimensions (Example 1)
+downscale 300 200 TestImage1 TestImage1-downscale
+save ResultImages/TestImage1-downscale.jpg TestImage1-downscale
+
+# Downscale the source image to even smaller dimensions (Example 2)
+downscale 150 100 TestImage1 TestImage1-downscale-small
+save ResultImages/TestImage1-downscale-small.jpg TestImage1-downscale-small
+
+# Apply mask operations
+partial blur TestImage1 TestImage1-mask TestImage1-partial-blur
+save ResultImages/TestImage1-partial-blur.jpg TestImage1-partial-blur
+
+partial sharpen TestImage1 TestImage1-mask TestImage1-partial-sharpen
+save ResultImages/TestImage1-partial-sharpen.jpg TestImage1-partial-sharpen
+
+partial sepia TestImage1 TestImage1-mask TestImage1-partial-sepia
+save ResultImages/TestImage1-partial-sepia.jpg TestImage1-partial-sepia
+
+partial greyscale TestImage1 TestImage1-mask TestImage1-partial-greyscale
+save ResultImages/TestImage1-partial-greyscale.jpg TestImage1-partial-greyscale
+
+partial red-component TestImage1 TestImage1-mask TestImage1-partial-red
+save ResultImages/TestImage1-partial-red.jpg TestImage1-partial-red
+
+partial green-component TestImage1 TestImage1-mask TestImage1-partial-green
+save ResultImages/TestImage1-partial-green.jpg TestImage1-partial-green
+
+partial blue-component TestImage1 TestImage1-mask TestImage1-partial-blue
+save ResultImages/TestImage1-partial-blue.jpg TestImage1-partial-blue
+
+partial value-component TestImage1 TestImage1-mask TestImage1-partial-value
+save ResultImages/TestImage1-partial-value.jpg TestImage1-partial-value
+
+partial intensity-component TestImage1 TestImage1-mask TestImage1-partial-intensity
+save ResultImages/TestImage1-partial-intensity.jpg TestImage1-partial-intensity
+
+partial luma-component TestImage1 TestImage1-mask TestImage1-partial-luma
+save ResultImages/TestImage1-partial-luma.jpg TestImage1-partial-luma

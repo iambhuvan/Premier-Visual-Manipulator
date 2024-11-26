@@ -1,0 +1,58 @@
+# Load Operations
+# Loads the primary image for processing
+load ../TestImages/TestImage1JPG.jpg TestImage1
+
+# Loads the mask image for partial operations
+load ../TestImages/TestImage1-mask.jpg TestImage1-mask
+
+# Downscale Operations
+# Reduces image size to 300x200 pixels while maintaining aspect ratio
+downscale 300 200 TestImage1 TestImage1-downscale
+save ../ResultImages/TestImage1-downscale.jpg TestImage1-downscale
+
+# Further reduces image size to 150x100 pixels
+downscale 150 100 TestImage1 TestImage1-downscale-small
+save ../ResultImages/TestImage1-downscale-small.jpg TestImage1-downscale-small
+
+# Partial Operations with Mask
+# Applies blur effect only to masked areas
+partial blur TestImage1 TestImage1-mask TestImage1-partial-blur
+save ../ResultImages/TestImage1-partial-blur.jpg TestImage1-partial-blur
+
+# Enhances sharpness only in masked regions
+partial sharpen TestImage1 TestImage1-mask TestImage1-partial-sharpen
+save ../ResultImages/TestImage1-partial-sharpen.jpg TestImage1-partial-sharpen
+
+# Applies sepia tone effect to masked areas only
+partial sepia TestImage1 TestImage1-mask TestImage1-partial-sepia
+save ../ResultImages/TestImage1-partial-sepia.jpg TestImage1-partial-sepia
+
+# Converts masked areas to greyscale
+partial greyscale TestImage1 TestImage1-mask TestImage1-partial-greyscale
+save ../ResultImages/TestImage1-partial-greyscale.jpg TestImage1-partial-greyscale
+
+# Color Component Operations with Mask
+# Isolates red channel in masked areas
+partial red-component TestImage1 TestImage1-mask TestImage1-partial-red
+save ../ResultImages/TestImage1-partial-red.jpg TestImage1-partial-red
+
+# Isolates green channel in masked areas
+partial green-component TestImage1 TestImage1-mask TestImage1-partial-green
+save ../ResultImages/TestImage1-partial-green.jpg TestImage1-partial-green
+
+# Isolates blue channel in masked areas
+partial blue-component TestImage1 TestImage1-mask TestImage1-partial-blue
+save ../ResultImages/TestImage1-partial-blue.jpg TestImage1-partial-blue
+
+# Component Operations with Mask
+# Extracts value component in masked areas
+partial value-component TestImage1 TestImage1-mask TestImage1-partial-value
+save ../ResultImages/TestImage1-partial-value.jpg TestImage1-partial-value
+
+# Calculates intensity component in masked areas
+partial intensity-component TestImage1 TestImage1-mask TestImage1-partial-intensity
+save ../ResultImages/TestImage1-partial-intensity.jpg TestImage1-partial-intensity
+
+# Applies luma transformation to masked areas
+partial luma-component TestImage1 TestImage1-mask TestImage1-partial-luma
+save ../ResultImages/TestImage1-partial-luma.jpg TestImage1-partial-luma
